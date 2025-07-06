@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { useFormValidation } from '../useFormValidation';
-import { postToken, signInUser } from '@/services/auth/authApi';
+import { getToken,  signInUser } from '@/services/auth/authApi';
 import { useRouter } from 'next/navigation';
 
 import { handleAxiosError } from '@/utils/handleAxiosError';
@@ -33,7 +33,7 @@ export default function SighInPage() {
 
       localStorage.setItem('username', username);
 
-      const response = await postToken({
+      const response = await getToken({
         email: formData.email,
         password: formData.password,
       });

@@ -10,6 +10,10 @@ type signUpUserProps = signInUserProps & {
   username: string;
 };
 
+type refreshTokenProps =  {
+    refresh: string;
+};
+
 
 export async function signInUser(data: signInUserProps) {
   const response = await api.post(API_ENDPOINTS.SIGN_IN, data, {
@@ -29,7 +33,7 @@ export async function signUpUser(data: signUpUserProps) {
   return response.data;
 }
 
-export async function postToken(data: signInUserProps) {
+export async function getToken(data: signInUserProps) {
   const response = await api.post(API_ENDPOINTS.GET_TOKEN, data, {
     headers: {
       'Content-Type': 'application/json',
@@ -37,3 +41,14 @@ export async function postToken(data: signInUserProps) {
   });
   return response.data;
 }
+
+
+export async function refreshToken(data: refreshTokenProps) {
+  const response = await api.post(API_ENDPOINTS.REFRESH_TOKEN, data, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.data;
+}
+
