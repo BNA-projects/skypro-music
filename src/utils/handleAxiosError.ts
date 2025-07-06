@@ -14,13 +14,13 @@ export const handleAxiosError = (error: unknown): void => {
           message = serverMessage || 'Некорректный запрос';
           break;
         case 401:
-          message = 'Пользователь с таким email или паролем не найден';
+          message = serverMessage ||'Пользователь с таким email или паролем не найден';
           break;
         case 403:
-          message = 'Введенный Email уже занят';
+          message =serverMessage ||'Введенный Email уже занят';
           break;
         case 404:
-          message = 'Ресурс не найден';
+          message = serverMessage ||'Ресурс не найден';
           break;
         case 412:
           message =
