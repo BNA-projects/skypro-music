@@ -20,7 +20,7 @@ const authSlice = createSlice({
       state.username = action.payload;
       localStorage.setItem('username', action.payload);
     },
-     setAccessToken: (state, action: PayloadAction<string>) => {
+    setAccessToken: (state, action: PayloadAction<string>) => {
       state.access = action.payload;
       localStorage.setItem('acceess', action.payload);
     },
@@ -28,9 +28,17 @@ const authSlice = createSlice({
       state.refresh = action.payload;
       localStorage.setItem('refresh', action.payload);
     },
+    clearUser: (state) => {
+      state.username = '';
+      state.access = '';
+      state.refresh = '';
+      localStorage.removeItem('username');
+      localStorage.removeItem('access');
+      localStorage.removeItem('refresh');
+    },
   },
 });
 
-export const { setUserName } = authSlice.actions;
+export const { setUserName,setAccessToken, setRefreshToken } = authSlice.actions;
 
 export const authSliceReducer = authSlice.reducer;
