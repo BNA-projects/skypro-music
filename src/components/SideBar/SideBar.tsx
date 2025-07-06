@@ -1,12 +1,23 @@
+'use client'
+
 import Link from 'next/link';
 import styles from './Sidebar.module.css';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function SideBar() {
+    const [username, setUsername] = useState<string | null>(null);
+
+      useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
   return (
     <div className={styles.main__sidebar}>
       <div className={styles.sidebar__personal}>
-        <p className={styles.sidebar__personalName}>Sergey.Ivanov</p>
+        <p className={styles.sidebar__personalName}>{username}</p>
         <Link href="/auth/signin">
           <div className={styles.sidebar__icon} role="button" title="Выйти">
             <svg>

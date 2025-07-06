@@ -23,24 +23,27 @@ export default function SighInPage() {
       return;
     }
 
-   
-  try {
-    await signInUser({
-      email: formData.email,
-      password: formData.password,
-    });
+    try {
+      const userData = await signInUser({
+        email: formData.email,
+        password: formData.password,
+      });
 
-    const response = await postToken({
-      email: formData.email,
-      password: formData.password,
-    });
+      const username = userData.username;
 
-    console.log(response);
-    router.push('/');
-  } catch (error) {
-    handleAxiosError(error);
-  }
-};
+      localStorage.setItem('username', username);
+
+      const response = await postToken({
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log(response);
+
+      router.push('./');
+    } catch (error) {
+      handleAxiosError(error);
+    }
+  };
 
   return (
     <>
@@ -72,7 +75,7 @@ export default function SighInPage() {
         </button>
       </Link>
 
-      <Link href="./auth/signup" className={styles.modal__btnSignup}>
+      <Link href="/auth/signup" className={styles.modal__btnSignup}>
         Зарегистрироваться
       </Link>
     </>
