@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { useFormValidation } from '../useFormValidation';
-import { getToken,  signInUser } from '@/services/auth/authApi';
+import { getToken, signInUser } from '@/services/auth/authApi';
 import { useRouter } from 'next/navigation';
 
 import { handleAxiosError } from '@/utils/handleAxiosError';
@@ -12,7 +12,7 @@ import { useAppDispatch } from '@store/store';
 import { setUserName } from '@store/features/authSlice';
 
 export default function SighInPage() {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const { formData, error, handleChange, validateForm } = useFormValidation({
     email: '',
@@ -33,15 +33,12 @@ export default function SighInPage() {
       });
 
       const username = userData.username;
-      dispatch(setUserName(username))
-
-      localStorage.setItem('username', username);
+      dispatch(setUserName(username));
 
       const response = await getToken({
         email: formData.email,
         password: formData.password,
       });
-      console.log(response);
 
       router.push('/');
     } catch (error) {
