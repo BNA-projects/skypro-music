@@ -31,6 +31,11 @@ export default function SighUpPage() {
     signUpUser(dataToSend)
     
       .then((response) => {
+        console.log(response)
+        const username = response.result.username;
+
+   
+    localStorage.setItem('username', username);
         router.push('/auth/signin');
       })
       .catch((error) => {
