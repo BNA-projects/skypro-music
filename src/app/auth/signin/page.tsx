@@ -9,7 +9,11 @@ import { useRouter } from 'next/navigation';
 
 import { handleAxiosError } from '@/utils/handleAxiosError';
 import { useAppDispatch } from '@store/store';
-import { setUserName } from '@store/features/authSlice';
+import {
+  setAccessToken,
+  setRefreshToken,
+  setUserName,
+} from '@store/features/authSlice';
 
 export default function SighInPage() {
   const dispatch = useAppDispatch();
@@ -39,7 +43,9 @@ export default function SighInPage() {
         email: formData.email,
         password: formData.password,
       });
-
+   
+      dispatch(setAccessToken(response.access));
+      dispatch(setRefreshToken(response.refresh));
       router.push('/');
     } catch (error) {
       handleAxiosError(error);
