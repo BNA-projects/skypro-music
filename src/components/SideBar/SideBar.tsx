@@ -1,24 +1,15 @@
-'use client';
 
-import Link from 'next/link';
+
+import SidebarUserInfo from '../SideBarUserInfo/SideBarUserInfo';
 import styles from './Sidebar.module.css';
 import Image from 'next/image';
-import { useAppSelector } from '@store/store';
+import Link from 'next/link';
 
-export default function SideBar() {
-  const userName = useAppSelector((state) => state.auth.username);
+function SideBar() {
+
   return (
     <div className={styles.main__sidebar}>
-      <div className={styles.sidebar__personal}>
-        <p className={styles.sidebar__personalName}>{userName || 'admin'}</p>
-        <Link href="/auth/signin">
-          <div className={styles.sidebar__icon} role="button" title="Выйти">
-            <svg>
-              <use xlinkHref="/img/icon/sprite.svg#logout"></use>
-            </svg>
-          </div>
-        </Link>
-      </div>
+  <SidebarUserInfo />
       <div className={styles.sidebar__block}>
         <div className={styles.sidebar__list}>
           <div className={styles.sidebar__item}>
@@ -59,3 +50,5 @@ export default function SideBar() {
     </div>
   );
 }
+
+export default SideBar
