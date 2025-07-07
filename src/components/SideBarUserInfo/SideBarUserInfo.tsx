@@ -15,7 +15,7 @@ function SidebarUserInfo() {
 
   return (
     <div className={styles.sidebar__personal}>
-      <p className={styles.sidebar__personalName}>{userName || 'admin'}</p>
+      <p className={styles.sidebar__personalName}>{userName || null}</p>
 
       <button
         className={styles.sidebar__icon}
