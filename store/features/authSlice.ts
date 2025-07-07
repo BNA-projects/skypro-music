@@ -22,7 +22,7 @@ const authSlice = createSlice({
     },
     setAccessToken: (state, action: PayloadAction<string>) => {
       state.access = action.payload;
-      localStorage.setItem('acceess', action.payload);
+      localStorage.setItem('access', action.payload);
     },
     setRefreshToken: (state, action: PayloadAction<string>) => {
       state.refresh = action.payload;
@@ -39,6 +39,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUserName,setAccessToken, setRefreshToken } = authSlice.actions;
+export const { setUserName,setAccessToken, setRefreshToken,clearUser } = authSlice.actions;
 
 export const authSliceReducer = authSlice.reducer;
