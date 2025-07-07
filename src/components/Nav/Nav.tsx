@@ -5,13 +5,30 @@ import styles from './Nav.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { logout } from '@/utils/logout';
+import { useAppSelector } from '@store/store';
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+const dispatch = useDispatch();
+const router = useRouter();
+
+   const userName = useAppSelector((state) => state.auth.username);
 
   const handleToggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
+
+  const handleLogout = () => logout(dispatch,router);
+  const handleAuthClick = () => {
+  if (userName) {
+    handleLogout();
+  } else {
+    router.push('/auth/signin');
+  }
+};
 
   return (
     <nav className={styles.main__nav}>
@@ -48,9 +65,9 @@ export default function Nav() {
             </Link>
           </li>
           <li className={styles.menu__item}>
-            <Link href="/auth/signin" className={styles.menu__link}>
-              Выйти
-            </Link>
+            <button className={styles.menu__link} onClick = {handleAuthClick}>
+             {userName?'Выйти':'Войти'} 
+            </button>
           </li>
         </ul>
       </div>
