@@ -10,9 +10,6 @@ type signUpUserProps = signInUserProps & {
   username: string;
 };
 
-type refreshTokenProps =  {
-    refresh: string;
-};
 
 
 export async function signInUser(data: signInUserProps) {
@@ -43,8 +40,8 @@ export async function getToken(data: signInUserProps) {
 }
 
 
-export async function refreshToken(data: refreshTokenProps) {
-  const response = await api.post(API_ENDPOINTS.REFRESH_TOKEN, data, {
+export async function refreshToken(refresh: string) {
+  const response = await api.post(API_ENDPOINTS.REFRESH_TOKEN, refresh, {
     headers: {
       'Content-Type': 'application/json',
     },
