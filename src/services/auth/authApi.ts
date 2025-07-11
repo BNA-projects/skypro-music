@@ -41,7 +41,7 @@ export async function getToken(data: signInUserProps) {
 
 
 export async function refreshToken(refresh: string) {
-  const response = await api.post(API_ENDPOINTS.REFRESH_TOKEN, refresh, {
+  const response = await api.post(API_ENDPOINTS.REFRESH_TOKEN, {refresh}, {
     headers: {
       'Content-Type': 'application/json',
     },

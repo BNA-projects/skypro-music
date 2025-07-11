@@ -22,3 +22,24 @@ export async function fetchTracksByID(
 
   return response.data.data;
 }
+
+export async function addLike(access:string, id: string | number) {
+  return await api.post(API_ENDPOINTS.ADD_TO_FAVORITES(id),{},{
+       headers: {
+    Authorization: `Bearer ${access}`,
+  },
+  }
+
+);
+}
+
+export async function removeLike(access: string, id: string | number) {
+  return await api.delete(API_ENDPOINTS.REMOVE_FROM_FAVORITES(id), {
+    headers: {
+      Authorization: `Bearer ${access}`,
+    },
+  });
+}
+
+
+

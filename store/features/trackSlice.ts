@@ -4,6 +4,7 @@ import { shuffleArray } from '@/utils/random';
 
 type initialStateType = {
   currentTrack: Track | null;
+  favoritePlayList: Track[];
   isPlay: boolean;
   isShuffle: boolean;
   playList: Track[];
@@ -15,6 +16,7 @@ const initialState: initialStateType = {
   isPlay: false,
   isShuffle: false,
   playList: [],
+  favoritePlayList: [],
   shuffledPlayList: [],
 };
 
@@ -96,6 +98,17 @@ const trackSlice = createSlice({
       state.currentTrack = playList[previousIndex];
       state.isPlay = true;
     },
+    setFavoritePlayList(state, action: PayloadAction<Track[]>) {
+      state.favoritePlayList = action.payload;
+    },
+    addLikedTracks(state, action: PayloadAction<Track>) {
+      state.favoritePlayList = [...state.favoritePlayList, action.payload];
+    },
+    removeLikedTracks(state, action: PayloadAction<Track>) {
+      state.favoritePlayList = state.favoritePlayList.filter(
+        (track) => track._id !== action.payload._id,
+      );
+    },
   },
 });
 
@@ -106,6 +119,8 @@ export const {
   setNextTrack,
   setPreviousTrack,
   toggleShuffle,
+  addLikedTracks,
+  removeLikedTracks,
 } = trackSlice.actions;
 
 export const trackSliceReducer = trackSlice.reducer;
