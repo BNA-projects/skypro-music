@@ -13,12 +13,6 @@ function SidebarUserInfo() {
   const handleLogout = () => logout(dispatch, router);
   const userName = useAppSelector((state) => state.auth.username);
 
-    const access = useAppSelector((state) => state.auth.access);
-    const refresh = useAppSelector((state) => state.auth.refresh);
-
-  console.log(access)
-    console.log(refresh)
-
   return (
     <div className={styles.sidebar__personal}>
       <p className={styles.sidebar__personalName}>{userName || null}</p>

@@ -121,6 +121,7 @@ export const {
   toggleShuffle,
   addLikedTracks,
   removeLikedTracks,
+  setFavoritePlayList,
 } = trackSlice.actions;
 
 export const trackSliceReducer = trackSlice.reducer;

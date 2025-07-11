@@ -7,11 +7,7 @@ export const API_ENDPOINTS = {
   REFRESH_TOKEN: '/user/token/refresh/',
    ADD_TO_FAVORITES: (id:string | number) => `/catalog/track/${id}/favorite/`,
   REMOVE_FROM_FAVORITES: (id:string | number) => `/catalog/track/${id}/favorite/`,
-  // GET_FAVORITES: '/catalog/track/favorite/all/',
-  // CREATE_SELECTION: '/catalog/selection',
-  // GET_ALL_SELECTIONS: '/catalog/selection/all',
-  //  GET_SELECTION_BY_ID:  `/catalog/selection`
-
+  GET_FAVORITES: '/catalog/track/favorite/all/',
 };
 
 
