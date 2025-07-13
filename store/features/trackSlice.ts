@@ -9,6 +9,7 @@ type initialStateType = {
   isShuffle: boolean;
   playList: Track[];
   shuffledPlayList: Track[];
+  isLoading: boolean;
 };
 
 const initialState: initialStateType = {
@@ -18,6 +19,7 @@ const initialState: initialStateType = {
   playList: [],
   favoritePlayList: [],
   shuffledPlayList: [],
+  isLoading: false,
 };
 
 function getActivePlayList(state: initialStateType): Track[] {
@@ -109,6 +111,9 @@ const trackSlice = createSlice({
         (track) => track._id !== action.payload._id,
       );
     },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
@@ -121,7 +126,7 @@ export const {
   toggleShuffle,
   addLikedTracks,
   removeLikedTracks,
-  setFavoritePlayList,
+  setFavoritePlayList,setIsLoading
 } = trackSlice.actions;
 
 export const trackSliceReducer = trackSlice.reducer;
