@@ -2,7 +2,7 @@ export type Track = {
   _id: number;
   name: string;
   author: string;
-  release_date: string; 
+  release_date: string;
   genre: string[];
   duration_in_seconds: number;
   album: string;
@@ -12,9 +12,9 @@ export type Track = {
 };
 
 export type CategoryTrack = {
- items: number[];        
-  name: string;           
-  owner: number[];        
+  items: number[];
+  name: string;
+  owner: number[];
   __v: number;
-  _id: number;   
+  _id: number;
 };
