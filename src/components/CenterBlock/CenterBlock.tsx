@@ -4,12 +4,6 @@ import Filter from '../Filter/Filter';
 import Search from '../Search/Search';
 import PlayListHeader from '../PlaylistHeader/PlaylistHeader';
 import { Track } from '@/sharesTypes/sharesTypes';
-// import { getUniqueValuesByKey } from '@/utils/helper';
-
-// type FilterOption = {
-//   title: string;
-//   options: string[];
-// };
 
 export default function CenterBlock({
   title,
@@ -18,38 +12,31 @@ export default function CenterBlock({
 }: {
   title: string;
   tracks: Track[];
-  isLoading:boolean
+  isLoading: boolean;
 }) {
-  // const genres = getUniqueValuesByKey(tracks, 'genre');
-  // const authors = getUniqueValuesByKey(tracks, 'author');
-
-  // const filters: FilterOption[] = [
-  //   { title: 'исполнителю', options: authors },
-  //   {
-  //     title: 'году выпуска',
-  //     options: ['По умолчанию', 'Сначала новые', 'Сначала старые'],
-  //   },
-  //   { title: 'жанру', options: genres },
-  // ];
   return (
     <div className={styles.centerblock}>
       <Search />
 
       <h2 className={styles.centerblock__h2}>{title}</h2>
-      <Filter tracks={tracks}   />
+      <Filter tracks={tracks} />
       <div className={styles.centerblock__content}>
         <PlayListHeader />
 
-{isLoading ? (
- <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center', marginTop: '1rem' }}>
-  Загрузка треков...
-</p>
-) : (
-   <PlayList tracks={tracks} />
-)}
-
-
-       
+        {isLoading ? (
+          <p
+            style={{
+              color: 'green',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginTop: '1rem',
+            }}
+          >
+            Загрузка треков...
+          </p>
+        ) : (
+          <PlayList tracks={tracks} />
+        )}
       </div>
     </div>
   );

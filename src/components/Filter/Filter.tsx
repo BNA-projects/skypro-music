@@ -5,7 +5,7 @@ import FilterItem from '../FilterItem/FilterItem';
 import { useState } from 'react';
 import { getUniqueValuesByKey } from '@/utils/helper';
 import { Track } from '@/sharesTypes/sharesTypes';
-import { useAppSelector } from '@store/store';
+
 
 type FilterOptionProps = {
   title: string;

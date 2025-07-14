@@ -3,7 +3,8 @@
 import styles from './PopUp.module.css';
 import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { toggleAuthor, toggleGenre, setYear } from '@store/features/trackSlice';
+import { toggleAuthor, toggleGenre, setSortOption, resetFilters } from '@store/features/trackSlice';
+import { useEffect } from 'react';
 
 type PopUpProps = {
   options: string[];
@@ -13,9 +14,15 @@ type PopUpProps = {
 
 export default function PopUp({ options, isVisible, title }: PopUpProps) {
   const dispatch = useAppDispatch();
-  const { selectedAuthors, selectedGenres, selectedYear } = useAppSelector(
+  const { selectedAuthors, selectedGenres, sortOption } = useAppSelector(
     (state) => state.tracks,
   );
+
+   useEffect(() => {
+  return () => {
+    dispatch(resetFilters());
+  };
+}, []);
 
   const handleToggleItem = (itemName: string) => {
     if (title === 'исполнителю') {
@@ -23,7 +30,7 @@ export default function PopUp({ options, isVisible, title }: PopUpProps) {
     } else if (title === 'жанру') {
       dispatch(toggleGenre(itemName));
     } else if (title === 'году выпуска') {
-      dispatch(setYear(itemName));
+      dispatch(setSortOption(itemName));
     }
   };
 
@@ -33,10 +40,13 @@ export default function PopUp({ options, isVisible, title }: PopUpProps) {
     } else if (title === 'жанру') {
       return selectedGenres.includes(item);
     } else if (title === 'году выпуска') {
-      return selectedYear === item;
+      return sortOption === item;
     }
     return false;
   };
+
+
+
 
   return (
     <div
