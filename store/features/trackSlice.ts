@@ -10,6 +10,11 @@ type initialStateType = {
   playList: Track[];
   shuffledPlayList: Track[];
   isLoading: boolean;
+  selectedAuthors: string[];
+  selectedGenres: string[];
+  sortOption: string;
+  searchInput:string;
+  
 };
 
 const initialState: initialStateType = {
@@ -19,7 +24,11 @@ const initialState: initialStateType = {
   playList: [],
   favoritePlayList: [],
   shuffledPlayList: [],
-  isLoading: false,
+  isLoading: true,
+  selectedAuthors: [],
+  selectedGenres: [],
+  sortOption: 'По умолчанию',
+  searchInput:''
 };
 
 function getActivePlayList(state: initialStateType): Track[] {
@@ -114,6 +123,29 @@ const trackSlice = createSlice({
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+    toggleAuthor: (state, action: PayloadAction<string>) => {
+      const author = action.payload;
+      state.selectedAuthors = state.selectedAuthors.includes(author)
+        ? state.selectedAuthors.filter((a) => a !== author)
+        : [...state.selectedAuthors, author];
+    },
+    toggleGenre: (state, action: PayloadAction<string>) => {
+      const genre = action.payload;
+      state.selectedGenres = state.selectedGenres.includes(genre)
+        ? state.selectedGenres.filter((g) => g !== genre)
+        : [...state.selectedGenres, genre];
+    },
+    setSortOption: (state, action: PayloadAction<string>) => {
+      state.sortOption = action.payload;
+    },
+    resetFilters(state) {
+      state.selectedAuthors = [];
+      state.selectedGenres = [];
+      state.sortOption = 'По умолчанию';
+    },
+     setSearchInput: (state, action: PayloadAction<string>) => {
+      state.searchInput = action.payload;
+    },
   },
 });
 
@@ -126,7 +158,11 @@ export const {
   toggleShuffle,
   addLikedTracks,
   removeLikedTracks,
-  setFavoritePlayList,setIsLoading
+  setFavoritePlayList,
+  setIsLoading,
+  toggleAuthor,
+  toggleGenre,
+  setSortOption,resetFilters,setSearchInput
 } = trackSlice.actions;
 
 export const trackSliceReducer = trackSlice.reducer;
