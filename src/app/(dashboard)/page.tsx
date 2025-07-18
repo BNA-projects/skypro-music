@@ -26,7 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllTracks();
-  }, [getAllTracks]);
+  }, []);
 
   return (
     <div>
