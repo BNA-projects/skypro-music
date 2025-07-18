@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { logout } from '@/utils/logout';
 import { useAppSelector } from '@store/store';
+import { toast } from 'react-toastify';
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,6 +17,12 @@ export default function Nav() {
   const router = useRouter();
 
   const userName = useAppSelector((state) => state.auth.username);
+  const handleClick = (e: { preventDefault: () => void }) => {
+    if (!userName) {
+      e.preventDefault();
+      toast.error('Сначала войдите в аккаунт');
+    }
+  };
 
   const handleToggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -60,7 +67,11 @@ export default function Nav() {
             </Link>
           </li>
           <li className={styles.menu__item}>
-            <Link href="/my-tracks" className={styles.menu__link}>
+            <Link
+              href="/my-tracks"
+              className={styles.menu__link}
+              onClick={handleClick}
+            >
               Мой плейлист
             </Link>
           </li>
