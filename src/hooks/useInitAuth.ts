@@ -4,6 +4,7 @@ import {
   setAccessToken,
   setRefreshToken,
   setUserName,
+ 
 } from '@store/features/authSlice';
 
 export const useInitAuth = () => {
@@ -13,6 +14,7 @@ export const useInitAuth = () => {
     const username = localStorage.getItem('username') || '';
     const access = localStorage.getItem('access') || '';
     const refresh = localStorage.getItem('refresh') || '';
+
     dispatch(setUserName(username));
     dispatch(setAccessToken(access));
     dispatch(setRefreshToken(refresh));

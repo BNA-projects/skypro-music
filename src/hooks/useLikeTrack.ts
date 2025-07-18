@@ -42,6 +42,7 @@ export const useLikeTrack = (track: Track | null): returnTypeHook => {
         (newToken: string) => actionApi(newToken || access, track._id),
         refresh,
         dispatch,
+        access
       )
         .then(() => {
           dispatch(actionSlice(track));
