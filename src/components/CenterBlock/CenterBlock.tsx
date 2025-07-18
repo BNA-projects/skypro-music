@@ -4,6 +4,9 @@ import Filter from '../Filter/Filter';
 import Search from '../Search/Search';
 import PlayListHeader from '../PlaylistHeader/PlaylistHeader';
 import { Track } from '@/sharesTypes/sharesTypes';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import TrackSkeleton from '../TrackSkeleton';
 
 export default function CenterBlock({
   title,
@@ -24,16 +27,13 @@ export default function CenterBlock({
         <PlayListHeader />
 
         {isLoading ? (
-          <p
-            style={{
-              color: 'green',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginTop: '1rem',
-            }}
-          >
-            Загрузка треков...
-          </p>
+
+            <TrackSkeleton/>
+     
+  
+        
+ 
+        
         ) : (
           <PlayList tracks={tracks} />
         )}

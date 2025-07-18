@@ -16,11 +16,21 @@ export default function PlayList({ tracks }: PlayListProps) {
   const selectedGenres = useAppSelector((state) => state.tracks.selectedGenres);
 
   const sortOption = useAppSelector((state) => state.tracks.sortOption);
-
-  console.log(allTracks);
+  const searchInput = useAppSelector((store) => store.tracks.searchInput);
+  console.log(searchInput)
 
   const filteredTracks = useMemo(() => {
     return allTracks
+
+       .filter((track) => {
+      if (!searchInput.trim()) return true; 
+
+      const lowerSearch = searchInput.toLowerCase();
+
+      return (
+        track.name.toLowerCase().includes(lowerSearch) 
+      );
+    })
 
       .filter((track) =>
         selectedAuthors.length > 0
@@ -42,12 +52,16 @@ export default function PlayList({ tracks }: PlayListProps) {
         if (sortOption === 'Сначала старые') return yearA - yearB;
         return 0;
       });
-  }, [allTracks, selectedAuthors, selectedGenres, sortOption]);
+  }, [allTracks, selectedAuthors, selectedGenres, sortOption, searchInput]);
   return (
     <div className={styles.content__playlist}>
-      {filteredTracks.map((item) => {
-        return <TrackItem key={item._id} item={item} playList={tracks} />;
-      })}
+      {filteredTracks.length === 0 ? (
+        <div className={styles.emptyText}>...Нет выбранных треков</div>
+      ) : (
+        filteredTracks.map((item) => (
+          <TrackItem key={item._id} item={item} playList={tracks} />
+        ))
+      )}
     </div>
   );
 }

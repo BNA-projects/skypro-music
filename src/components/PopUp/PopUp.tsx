@@ -3,7 +3,12 @@
 import styles from './PopUp.module.css';
 import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { toggleAuthor, toggleGenre, setSortOption, resetFilters } from '@store/features/trackSlice';
+import {
+  toggleAuthor,
+  toggleGenre,
+  setSortOption,
+  resetFilters,
+} from '@store/features/trackSlice';
 import { useEffect } from 'react';
 
 type PopUpProps = {
@@ -18,11 +23,11 @@ export default function PopUp({ options, isVisible, title }: PopUpProps) {
     (state) => state.tracks,
   );
 
-   useEffect(() => {
-  return () => {
-    dispatch(resetFilters());
-  };
-}, []);
+  useEffect(() => {
+    return () => {
+      dispatch(resetFilters());
+    };
+  }, []);
 
   const handleToggleItem = (itemName: string) => {
     if (title === 'исполнителю') {
@@ -44,9 +49,6 @@ export default function PopUp({ options, isVisible, title }: PopUpProps) {
     }
     return false;
   };
-
-
-
 
   return (
     <div

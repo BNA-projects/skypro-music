@@ -16,3 +16,15 @@
 .content__playlist::-webkit-scrollbar {
   display: none;
 }
+
+.emptyText {
+  color: white;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  text-align: center;
+}
