@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { getUniqueValuesByKey } from '@/utils/helper';
 import { Track } from '@/sharesTypes/sharesTypes';
 
-
 type FilterOptionProps = {
   title: string;
   options: string[];

@@ -4,7 +4,6 @@ import {
   setAccessToken,
   setRefreshToken,
   setUserName,
- 
 } from '@store/features/authSlice';
 
 export const useInitAuth = () => {

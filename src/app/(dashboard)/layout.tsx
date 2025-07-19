@@ -1,8 +1,7 @@
-'use client'
+'use client';
 
 import Nav from '@/components/Nav/Nav';
 import SideBar from '@/components/SideBar/SideBar';
-// import Bar from '@/components/Bar/Bar';
 import styles from './layout.module.css';
 import { useInitAuth } from '@/hooks/useInitAuth';
 import { lazy, Suspense } from 'react';
@@ -16,7 +15,7 @@ export default function DashboardLayout({
 }) {
   useInitAuth();
 
-  const currentTrack = useAppSelector((state)=>state.tracks.currentTrack)
+  const currentTrack = useAppSelector((state) => state.tracks.currentTrack);
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -25,7 +24,7 @@ export default function DashboardLayout({
           <div>{children}</div>
           <SideBar />
         </main>
-            {currentTrack && (
+        {currentTrack && (
           <Suspense fallback={null}>
             <LazyBar />
           </Suspense>

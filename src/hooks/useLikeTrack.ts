@@ -21,7 +21,6 @@ export const useLikeTrack = (track: Track | null): returnTypeHook => {
   const access = useAppSelector((state) => state.auth.access);
   const refresh = useAppSelector((state) => state.auth.refresh);
 
-
   const isLike = favoritePlayList.some((t) => t._id === track?._id);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,10 +29,8 @@ export const useLikeTrack = (track: Track | null): returnTypeHook => {
       return toast.error('Нет авторизации');
     }
 
-
     const actionApi = isLike ? removeLike : addLike;
     const actionSlice = isLike ? removeLikedTracks : addLikedTracks;
-
 
     setIsLoading(true);
 
@@ -42,7 +39,7 @@ export const useLikeTrack = (track: Track | null): returnTypeHook => {
         (newToken: string) => actionApi(newToken || access, track._id),
         refresh,
         dispatch,
-        access
+        access,
       )
         .then(() => {
           dispatch(actionSlice(track));

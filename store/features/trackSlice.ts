@@ -13,8 +13,7 @@ type initialStateType = {
   selectedAuthors: string[];
   selectedGenres: string[];
   sortOption: string;
-  searchInput:string;
-  
+  searchInput: string;
 };
 
 const initialState: initialStateType = {
@@ -28,7 +27,7 @@ const initialState: initialStateType = {
   selectedAuthors: [],
   selectedGenres: [],
   sortOption: 'По умолчанию',
-  searchInput:''
+  searchInput: '',
 };
 
 function getActivePlayList(state: initialStateType): Track[] {
@@ -143,7 +142,7 @@ const trackSlice = createSlice({
       state.selectedGenres = [];
       state.sortOption = 'По умолчанию';
     },
-     setSearchInput: (state, action: PayloadAction<string>) => {
+    setSearchInput: (state, action: PayloadAction<string>) => {
       state.searchInput = action.payload;
     },
   },
@@ -162,7 +161,9 @@ export const {
   setIsLoading,
   toggleAuthor,
   toggleGenre,
-  setSortOption,resetFilters,setSearchInput
+  setSortOption,
+  resetFilters,
+  setSearchInput,
 } = trackSlice.actions;
 
 export const trackSliceReducer = trackSlice.reducer;

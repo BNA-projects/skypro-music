@@ -3,12 +3,16 @@ import styles from './PlayList.module.css';
 import { Track } from '@/sharesTypes/sharesTypes';
 import { useAppSelector } from '@store/store';
 import { useMemo } from 'react';
+// import PlayListSkeleton from '../PlayListSkeleton/PlayListSkeleton';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import PlayListSkeleton from '../PlayListSkeleton/PlayListSkeleton';
 
 type PlayListProps = {
   tracks: Track[];
+  isLoading: boolean;
 };
 
-export default function PlayList({ tracks }: PlayListProps) {
+export default function PlayList({ tracks, isLoading }: PlayListProps) {
   const allTracks = tracks;
   const selectedAuthors = useAppSelector(
     (state) => state.tracks.selectedAuthors,
@@ -17,20 +21,17 @@ export default function PlayList({ tracks }: PlayListProps) {
 
   const sortOption = useAppSelector((state) => state.tracks.sortOption);
   const searchInput = useAppSelector((store) => store.tracks.searchInput);
-  console.log(searchInput)
 
   const filteredTracks = useMemo(() => {
     return allTracks
 
-       .filter((track) => {
-      if (!searchInput.trim()) return true; 
+      .filter((track) => {
+        if (!searchInput.trim()) return true;
 
-      const lowerSearch = searchInput.toLowerCase();
+        const lowerSearch = searchInput.toLowerCase();
 
-      return (
-        track.name.toLowerCase().includes(lowerSearch) 
-      );
-    })
+        return track.name.toLowerCase().includes(lowerSearch);
+      })
 
       .filter((track) =>
         selectedAuthors.length > 0
@@ -53,15 +54,28 @@ export default function PlayList({ tracks }: PlayListProps) {
         return 0;
       });
   }, [allTracks, selectedAuthors, selectedGenres, sortOption, searchInput]);
+
+  if (isLoading) {
+    return (
+      <SkeletonTheme
+        baseColor="rgba(49, 49, 49, 1)"
+        highlightColor="rgba(173, 97, 255, 1)"
+        duration={2}
+      >
+        <PlayListSkeleton />
+      </SkeletonTheme>
+    );
+  }
+
+  if (filteredTracks.length === 0) {
+    return <div className={styles.emptyText}>...Нет выбранных треков</div>;
+  }
+
   return (
     <div className={styles.content__playlist}>
-      {filteredTracks.length === 0 ? (
-        <div className={styles.emptyText}>...Нет выбранных треков</div>
-      ) : (
-        filteredTracks.map((item) => (
-          <TrackItem key={item._id} item={item} playList={tracks} />
-        ))
-      )}
+      {filteredTracks.map((item) => (
+        <TrackItem key={item._id} item={item} playList={tracks} />
+      ))}
     </div>
   );
 }
