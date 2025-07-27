@@ -1,12 +1,17 @@
 import type { Track } from '@/sharesTypes/sharesTypes';
 
-export function formatTime(time: number) {
+export function formatTime(time: number): string {
+  if (typeof time !== 'number' || isNaN(time) || time < 0) {
+    return '--:--';
+  }
+
   const minutes = Math.floor(time / 60);
-  const inputSeconds = Math.floor(time % 60);
-  const outputSeconds = inputSeconds < 10 ? `0${inputSeconds}` : inputSeconds;
+  const seconds = Math.floor(time % 60);
+  const outputSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
   return `${minutes}:${outputSeconds}`;
 }
+
 
 export function getTimePanel(currentTime: number, totalTime: number): string {
   return `${formatTime(currentTime)} / ${formatTime(totalTime)}`;
