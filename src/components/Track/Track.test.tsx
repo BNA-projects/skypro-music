@@ -16,7 +16,7 @@ const mockTrack: Track = {
   logo: null,
   track_file:
     'https://webdev-music-003b5b991590.herokuapp.com/media/music_files/Alexander_Nakarada_-_Chase.mp3',
-  stared_user: [],
+  staredUser: [],
 };
 
 const mockTracks: Track[] = [
@@ -31,7 +31,7 @@ const mockTracks: Track[] = [
     logo: null,
     track_file:
       'https://webdev-music-003b5b991590.herokuapp.com/media/music_files/Alexander_Nakarada_-_Chase.mp3',
-    stared_user: [],
+    staredUser: [],
   },
   {
     _id: 9,
@@ -44,7 +44,7 @@ const mockTracks: Track[] = [
     logo: null,
     track_file:
       'https://webdev-music-003b5b991590.herokuapp.com/media/music_files/Frank_Schroter_-_Open_Sea_epic.mp3',
-    stared_user: [],
+    staredUser: [],
   },
 ];
 

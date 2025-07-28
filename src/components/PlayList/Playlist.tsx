@@ -3,7 +3,6 @@ import styles from './PlayList.module.css';
 import { Track } from '@/sharesTypes/sharesTypes';
 import { useAppSelector } from '@store/store';
 import { useMemo } from 'react';
-// import PlayListSkeleton from '../PlayListSkeleton/PlayListSkeleton';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import PlayListSkeleton from '../PlayListSkeleton/PlayListSkeleton';
 
