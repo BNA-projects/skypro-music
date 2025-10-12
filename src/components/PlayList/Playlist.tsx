@@ -14,7 +14,7 @@ type PlayListProps = {
 export default function PlayList({ tracks, isLoading }: PlayListProps) {
   const allTracks = tracks;
   const selectedAuthors = useAppSelector(
-    (state) => state.tracks.selectedAuthors,
+    (state) => state.tracks.selectedAuthors
   );
   const selectedGenres = useAppSelector((state) => state.tracks.selectedGenres);
 
@@ -37,13 +37,13 @@ export default function PlayList({ tracks, isLoading }: PlayListProps) {
       .filter((track) =>
         selectedAuthors.length > 0
           ? selectedAuthors.includes(track.author)
-          : true,
+          : true
       )
 
       .filter((track) =>
         selectedGenres.length > 0
           ? track.genre.some((g: string) => selectedGenres.includes(g))
-          : true,
+          : true
       )
 
       .sort((a, b) => {

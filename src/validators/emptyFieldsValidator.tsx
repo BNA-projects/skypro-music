@@ -1,6 +1,6 @@
 export const emptyFieldsValidator = (
   values: Record<string, string>,
-  requiredFields: string[],
+  requiredFields: string[]
 ): { hasEmpty: boolean; errors: Record<string, boolean> } => {
   const errors: Record<string, boolean> = {};
   let hasEmpty = false;

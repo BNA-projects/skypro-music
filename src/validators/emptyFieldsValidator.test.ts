@@ -34,7 +34,7 @@ describe('emptyFieldsValidator', () => {
   it('Проверяет, что все заполненные поля  не попадают в обьект errors и  hasEmpty не срабатывает', () => {
     const result = emptyFieldsValidator(
       { name: 'Петр', age: '25', login: '123' },
-      ['name', 'age', 'login'],
+      ['name', 'age', 'login']
     );
     expect(result).toEqual({ hasEmpty: false, errors: {} });
   });

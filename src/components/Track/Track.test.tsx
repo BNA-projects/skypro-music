@@ -53,13 +53,13 @@ describe('Track component', () => {
     render(
       <ReduxProvider>
         <TrackItem item={mockTrack} playList={mockTracks} />
-      </ReduxProvider>,
+      </ReduxProvider>
     );
     expect(screen.getAllByText(mockTrack.author).length).toBeGreaterThan(0);
     expect(screen.getAllByText(mockTrack.name).length).toBeGreaterThan(0);
     expect(screen.getAllByText(mockTrack.album).length).toBeGreaterThan(0);
     expect(
-      screen.getAllByText(formatTime(mockTrack.duration_in_seconds)).length,
+      screen.getAllByText(formatTime(mockTrack.duration_in_seconds)).length
     ).toBeGreaterThan(0);
   });
 });

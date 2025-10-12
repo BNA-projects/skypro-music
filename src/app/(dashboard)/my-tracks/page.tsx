@@ -26,7 +26,7 @@ export default function MyTracks() {
           fetchAllFavoriteTracks,
           refresh,
           dispatch,
-          access,
+          access
         );
 
         if (data) {

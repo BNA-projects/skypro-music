@@ -20,7 +20,7 @@ type PopUpProps = {
 export default function PopUp({ options, isVisible, title }: PopUpProps) {
   const dispatch = useAppDispatch();
   const { selectedAuthors, selectedGenres, sortOption } = useAppSelector(
-    (state) => state.tracks,
+    (state) => state.tracks
   );
 
   useEffect(() => {

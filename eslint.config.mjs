@@ -1,21 +1,16 @@
-import next from '@next/eslint-plugin-next';
-import typescriptParser from '@typescript-eslint/parser';
+import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
+import nextPlugin from '@next/eslint-plugin-next';
 import prettierPlugin from 'eslint-plugin-prettier';
-import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
 
 export default [
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: {
-      parser: typescriptParser,
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
-      },
-    },
+    ignores: ['.next', 'node_modules', 'dist'],
+  },
+  ...tseslint.configs.recommended,
+  {
     plugins: {
-      '@next/next': next,
-      '@typescript-eslint': typescriptEslintPlugin,
+      '@next/next': nextPlugin,
       prettier: prettierPlugin,
     },
     rules: {
@@ -24,10 +19,32 @@ export default [
         'error',
         {
           singleQuote: true,
-          parser: 'flow',
+          trailingComma: 'es5',
+          semi: true,
+          tabWidth: 2,
+          endOfLine: 'auto',
         },
       ],
-      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
+  {
+    files: ['jest.config.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
+  {
+    files: ['next-env.d.ts'],
+    rules: {
+      '@typescript-eslint/triple-slash-reference': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 'off',
+    },
+  },
+  prettierConfig,
 ];
