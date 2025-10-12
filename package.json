@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "format": "prettier --write .",
+    "build": "npm run format && next build",
     "start": "next start",
     "lint": "eslint .",
     "test": "jest"

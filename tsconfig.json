@@ -13,9 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      { "name": "next" }
-    ],
+    "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./components/*"],
@@ -32,22 +30,16 @@
     },
     "types": ["node", "react", "react-dom"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-"exclude": [
-  "node_modules",
-  "jest.config.js",
-  "**/*.test.ts",
-  "**/*.test.tsx",
-  "**/__tests__/**",
-  "eslint.config.js",
-  ".eslintrc.*",
-  "**/eslint-plugin-*",
-  "**/eslint/**"
-]
-
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "jest.config.js",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**",
+    "eslint.config.js",
+    ".eslintrc.*",
+    "**/eslint-plugin-*",
+    "**/eslint/**"
+  ]
 }
