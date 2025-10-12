@@ -15,7 +15,7 @@ export async function fetchTracksByID(id: string | number): Promise<PlayList> {
   }
 
   const response = await api.get(
-    API_ENDPOINTS.GET_SELECTION_BY_ID(correctedId)
+    API_ENDPOINTS.GET_SELECTION_BY_ID(correctedId),
   );
 
   return response.data.data;
@@ -29,7 +29,7 @@ export async function addLike(access: string, id: string | number) {
       headers: {
         Authorization: `Bearer ${access}`,
       },
-    }
+    },
   );
 }
 

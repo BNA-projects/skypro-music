@@ -163,7 +163,7 @@ export default function Bar() {
                 className={classNames(
                   styles.player__btnRepeat,
                   styles.btnIcon,
-                  { [styles.active]: isRepeatActive }
+                  { [styles.active]: isRepeatActive },
                 )}
                 onClick={onToggleRepeat}
               >
@@ -175,7 +175,7 @@ export default function Bar() {
                 className={classNames(
                   styles.player__btnShuffle,
                   styles.btnIcon,
-                  { [styles.active]: isShuffle }
+                  { [styles.active]: isShuffle },
                 )}
                 onClick={onShuffle}
               >
@@ -206,7 +206,7 @@ export default function Bar() {
                 <div
                   className={classNames(
                     styles.player__btnShuffle,
-                    styles.btnIcon
+                    styles.btnIcon,
                   )}
                 >
                   <svg
@@ -232,7 +232,7 @@ export default function Bar() {
                 <input
                   className={classNames(
                     styles.volume__progressLine,
-                    styles.btn
+                    styles.btn,
                   )}
                   type="range"
                   name="range"

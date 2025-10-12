@@ -45,7 +45,7 @@ export async function refreshToken(refresh: string) {
       headers: {
         'Content-Type': 'application/json',
       },
-    }
+    },
   );
   return response.data;
 }
