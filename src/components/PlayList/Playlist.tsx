@@ -21,6 +21,8 @@ export default function PlayList({ tracks, isLoading }: PlayListProps) {
   const sortOption = useAppSelector((state) => state.tracks.sortOption);
   const searchInput = useAppSelector((store) => store.tracks.searchInput);
 
+  console.log(allTracks);
+
   const filteredTracks = useMemo(() => {
     return allTracks
 
@@ -48,8 +50,8 @@ export default function PlayList({ tracks, isLoading }: PlayListProps) {
         const yearA = new Date(a.release_date).getFullYear();
         const yearB = new Date(b.release_date).getFullYear();
 
-        if (sortOption === 'Сначала новые') return yearB - yearA;
-        if (sortOption === 'Сначала старые') return yearA - yearB;
+        if (sortOption === 'Newest First') return yearB - yearA;
+        if (sortOption === 'Oldest First') return yearA - yearB;
         return 0;
       });
   }, [allTracks, selectedAuthors, selectedGenres, sortOption, searchInput]);
@@ -67,7 +69,7 @@ export default function PlayList({ tracks, isLoading }: PlayListProps) {
   }
 
   if (filteredTracks.length === 0) {
-    return <div className={styles.emptyText}>...Нет выбранных треков</div>;
+    return <div className={styles.emptyText}>...No tracks</div>;
   }
 
   return (

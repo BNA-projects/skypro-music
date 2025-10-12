@@ -20,7 +20,7 @@ export default function Search() {
       <input
         className={styles.search__text}
         type="search"
-        placeholder="Поиск"
+        placeholder="Search"
         name="search"
         value={searchInput}
         onChange={onSearchInput}

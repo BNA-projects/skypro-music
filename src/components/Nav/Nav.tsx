@@ -63,7 +63,7 @@ export default function Nav() {
         <ul className={styles.menu__list}>
           <li className={styles.menu__item}>
             <Link href="/" className={styles.menu__link}>
-              Главное
+              Home
             </Link>
           </li>
           <li className={styles.menu__item}>
@@ -72,12 +72,12 @@ export default function Nav() {
               className={styles.menu__link}
               onClick={handleClick}
             >
-              Мой плейлист
+              My tracks
             </Link>
           </li>
           <li className={styles.menu__item}>
             <button className={styles.menu__link} onClick={handleAuthClick}>
-              {userName ? 'Выйти' : 'Войти'}
+              {userName ? 'Log Out' : 'Log In'}
             </button>
           </li>
         </ul>

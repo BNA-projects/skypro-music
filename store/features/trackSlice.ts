@@ -26,7 +26,7 @@ const initialState: initialStateType = {
   isLoading: true,
   selectedAuthors: [],
   selectedGenres: [],
-  sortOption: 'По умолчанию',
+  sortOption: 'Default',
   searchInput: '',
 };
 

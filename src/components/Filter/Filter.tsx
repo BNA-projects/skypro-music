@@ -20,12 +20,12 @@ export default function Filter({ tracks }: FilterProps) {
   const authors = getUniqueValuesByKey(tracks, 'author');
 
   const filters: FilterOptionProps[] = [
-    { title: 'исполнителю', options: authors },
+    { title: 'author', options: authors },
     {
-      title: 'году выпуска',
-      options: ['По умолчанию', 'Сначала новые', 'Сначала старые'],
+      title: 'release year',
+      options: ['Default', 'Newest First', 'Oldest First'],
     },
-    { title: 'жанру', options: genres },
+    { title: 'genre', options: genres },
   ];
 
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -36,7 +36,7 @@ export default function Filter({ tracks }: FilterProps) {
 
   return (
     <div className={styles.centerblock__filter}>
-      <div className={styles.filter__title}>Искать по:</div>
+      <div className={styles.filter__title}>Search by:</div>
 
       {filters.map((filter) => (
         <FilterItem

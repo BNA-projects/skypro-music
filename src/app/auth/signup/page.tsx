@@ -42,7 +42,7 @@ export default function SighUpPage() {
         className={classNames(styles.modal__input, styles.login)}
         type="email"
         name="email"
-        placeholder="Почта"
+        placeholder="Email"
         onChange={handleChange}
         value={formData.email}
       />
@@ -50,7 +50,7 @@ export default function SighUpPage() {
         className={styles.modal__input}
         type="password"
         name="password"
-        placeholder="Пароль"
+        placeholder="Password"
         onChange={handleChange}
         value={formData.password}
       />
@@ -58,7 +58,7 @@ export default function SighUpPage() {
         className={styles.modal__input}
         type="password"
         name="confirmPassword"
-        placeholder="Повторите пароль"
+        placeholder="Confirm Password"
         onChange={handleChange}
         value={formData.confirmPassword}
       />
@@ -67,7 +67,7 @@ export default function SighUpPage() {
         className={styles.modal__input}
         type="text"
         name="username"
-        placeholder="Ник"
+        placeholder="Username"
         onChange={handleChange}
         value={formData.username}
       />
@@ -78,7 +78,7 @@ export default function SighUpPage() {
         onClick={onSubmit}
         className={styles.modal__btnSignupEnt}
       >
-        Зарегистрироваться
+        Sign Up
       </button>
     </>
   );

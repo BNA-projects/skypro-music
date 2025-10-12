@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 export const handleAxiosError = (error: unknown): void => {
-  let message = 'Произошла неизвестная ошибка';
+  let message = 'An unknown error occurred';
 
   if (axios.isAxiosError(error)) {
     if (error.response) {
@@ -11,33 +11,33 @@ export const handleAxiosError = (error: unknown): void => {
 
       switch (status) {
         case 400:
-          message = serverMessage || 'Некорректный запрос';
+          message = 'Bad request' 
           break;
         case 401:
           message =
-            serverMessage || 'Пользователь с таким email или паролем не найден';
+            'User with this email or password was not found'
           break;
         case 403:
-          message = serverMessage || 'Введенный Email уже занят';
+          message = 'The entered email is already taken' 
           break;
         case 404:
-          message = serverMessage || 'Ресурс не найден';
+          message = 'Resource not found'
           break;
         case 412:
           message =
-            serverMessage ||
-            'Запрос отклонён. Требуется выполнение дополнительных условий';
+            'Request rejected. Additional conditions are required.' 
           break;
         case 500:
-          message = 'Ошибка на сервере. Попробуйте позже.';
+          message = 'Server error. Please try again later.' 
           break;
         default:
-          message = serverMessage || `Ошибка: ${status}`;
+          message = `Error: ${status}` || serverMessage;
       }
     } else if (error.request) {
-      message = 'Нет ответа от сервера. Проверьте интернет.';
+      message =
+        'No response from the server. Please check your internet connection.' 
     } else {
-      message = 'Ошибка при отправке запроса';
+      message = 'Error while sending the request.' 
     }
   }
 

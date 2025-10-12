@@ -42,5 +42,5 @@ export default function MyTracks() {
     getAllFavoriteTracks();
   }, [access, refresh, dispatch]);
 
-  return <CenterBlock title="Мои треки" tracks={tracks} isLoading={!isReady} />;
+  return <CenterBlock title="My tracks" tracks={tracks} isLoading={!isReady} />;
 }

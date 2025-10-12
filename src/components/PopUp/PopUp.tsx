@@ -30,21 +30,21 @@ export default function PopUp({ options, isVisible, title }: PopUpProps) {
   }, []);
 
   const handleToggleItem = (itemName: string) => {
-    if (title === 'исполнителю') {
+    if (title === 'author') {
       dispatch(toggleAuthor(itemName));
-    } else if (title === 'жанру') {
+    } else if (title === 'genre') {
       dispatch(toggleGenre(itemName));
-    } else if (title === 'году выпуска') {
+    } else if (title === 'release year') {
       dispatch(setSortOption(itemName));
     }
   };
 
   const isItemActive = (item: string) => {
-    if (title === 'исполнителю') {
+    if (title === 'author') {
       return selectedAuthors.includes(item);
-    } else if (title === 'жанру') {
+    } else if (title === 'genre') {
       return selectedGenres.includes(item);
-    } else if (title === 'году выпуска') {
+    } else if (title === 'release year') {
       return sortOption === item;
     }
     return false;

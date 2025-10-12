@@ -58,7 +58,7 @@ export default function SighInPage() {
         className={classNames(styles.modal__input, styles.login)}
         type="email"
         name="email"
-        placeholder="Почта"
+        placeholder="Email"
         onChange={handleChange}
         value={formData.email}
       />
@@ -66,7 +66,7 @@ export default function SighInPage() {
         className={classNames(styles.modal__input)}
         type="password"
         name="password"
-        placeholder="Пароль"
+        placeholder="Password"
         onChange={handleChange}
         value={formData.password}
       />
@@ -78,12 +78,12 @@ export default function SighInPage() {
           onClick={onSubmit}
           className={styles.modal__btnEnter}
         >
-          Войти
+          Sign In
         </button>
       </Link>
 
       <Link href="/auth/signup" className={styles.modal__btnSignup}>
-        Зарегистрироваться
+         Sign Up
       </Link>
     </>
   );

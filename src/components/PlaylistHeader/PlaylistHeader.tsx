@@ -4,13 +4,13 @@ import classNames from 'classnames';
 export default function PlayListHeader (){
     return( <div className={styles.content__title}>
           <div className={classNames(styles.playlistTitle__col, styles.col01)}>
-            Трек
+            Track
           </div>
           <div className={classNames(styles.playlistTitle__col, styles.col02)}>
-            Исполнитель
+            Author
           </div>
           <div className={classNames(styles.playlistTitle__col, styles.col03)}>
-            Альбом
+           Album
           </div>
           <div className={classNames(styles.playlistTitle__col, styles.col04)}>
             <svg className={styles.playlistTitle__svg}>

@@ -8,6 +8,7 @@ import { setIsLoading, setCurrentPlayList } from '@store/features/trackSlice';
 import {  fetchAllTracks, fetchTracksByID } from '@/services/tracks/tracksApi';
 import { handleAxiosError } from '@/utils/handleAxiosError';
 import { useAppSelector, useAppDispatch } from '@store/store';
+import { playlistNameMap } from '@/utils/playlistNameMap';
 
 export default function CategoriesPlaylist() {
   const params = useParams();
@@ -28,11 +29,12 @@ export default function CategoriesPlaylist() {
     }
       const data = await fetchTracksByID(idTracks);
 
-      if (data) settitlePlayList(data.name);
+      if (data) {  const englishName = playlistNameMap[data.name] || data.name;
+  settitlePlayList(englishName)}
 
       const filteredSortedTracks = data.items
-        .map((id) => allTracksdata.find((track) => track._id === id))
-        .filter((track): track is Track => track !== undefined);
+        .map((id:number) => allTracksdata.find((track) => track._id === id))
+        .filter((track: Track) => track !== undefined);
 
       setFilteredTracks(filteredSortedTracks);
     } catch (error) {

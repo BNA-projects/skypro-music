@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <CenterBlock title="Треки" tracks={tracks} isLoading={isLoading} />
+      <CenterBlock title="Tracks" tracks={tracks} isLoading={isLoading} />
     </div>
   );
 }

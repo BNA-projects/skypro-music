@@ -5,7 +5,7 @@ export default function Head() {
       <title>Skypro.Music</title>
       <meta
         name="description"
-        content="Музыкальный сервис для прослушивания и управления плейлистами"
+        content="Music service for listening and managing playlists"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="UTF-8" />

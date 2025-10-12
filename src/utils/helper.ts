@@ -18,20 +18,21 @@ export function getTimePanel(currentTime: number, totalTime: number): string {
 }
 
 export function getUniqueValuesByKey(arr: Track[], key: keyof Track): string[] {
-  const unigueValues = new Set<string>();
+  const uniqueValues = new Set<string>();
+
   arr.forEach((item) => {
     const value = item[key];
 
     if (Array.isArray(value)) {
       value.forEach((v) => {
-        if (v) {
-          unigueValues.add(v);
+        if (v != null) {
+          uniqueValues.add(String(v));
         }
       });
-    } else if (typeof value === 'string') {
-      unigueValues.add(value);
+    } else if (typeof value === 'string' || typeof value === 'number') {
+      uniqueValues.add(String(value));
     }
   });
 
-  return Array.from(unigueValues);
+  return Array.from(uniqueValues);
 }
