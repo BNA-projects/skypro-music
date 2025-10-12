@@ -2,7 +2,7 @@ import styles from './layout.module.css';
 import Link from 'next/link';
 
 export default function AuthLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {

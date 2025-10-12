@@ -3,15 +3,14 @@ import { setAccessToken } from '@store/features/authSlice';
 import { AppDispatch } from '@store/store';
 import { AxiosError } from 'axios';
 
-
 export const withReauth = async <T>(
   apiFunction: (access: string) => Promise<T>,
   refresh: string,
   dispatch: AppDispatch,
-    access: string,
+  access: string,
 ): Promise<T> => {
   try {
-   return await apiFunction(access);
+    return await apiFunction(access);
   } catch (error) {
     const axiosError = error as AxiosError;
 

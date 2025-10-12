@@ -11,33 +11,31 @@ export const handleAxiosError = (error: unknown): void => {
 
       switch (status) {
         case 400:
-          message = 'Bad request' 
+          message = 'Bad request';
           break;
         case 401:
-          message =
-            'User with this email or password was not found'
+          message = 'User with this email or password was not found';
           break;
         case 403:
-          message = 'The entered email is already taken' 
+          message = 'The entered email is already taken';
           break;
         case 404:
-          message = 'Resource not found'
+          message = 'Resource not found';
           break;
         case 412:
-          message =
-            'Request rejected. Additional conditions are required.' 
+          message = 'Request rejected. Additional conditions are required.';
           break;
         case 500:
-          message = 'Server error. Please try again later.' 
+          message = 'Server error. Please try again later.';
           break;
         default:
           message = `Error: ${status}` || serverMessage;
       }
     } else if (error.request) {
       message =
-        'No response from the server. Please check your internet connection.' 
+        'No response from the server. Please check your internet connection.';
     } else {
-      message = 'Error while sending the request.' 
+      message = 'Error while sending the request.';
     }
   }
 

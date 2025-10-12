@@ -83,7 +83,7 @@ export default function SighInPage() {
       </Link>
 
       <Link href="/auth/signup" className={styles.modal__btnSignup}>
-         Sign Up
+        Sign Up
       </Link>
     </>
   );

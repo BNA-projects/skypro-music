@@ -1,4 +1,3 @@
-// @ts-expect-error: Нет декларации типов
 import next from '@next/eslint-plugin-next';
 import typescriptParser from '@typescript-eslint/parser';
 import prettierPlugin from 'eslint-plugin-prettier';
@@ -21,17 +20,14 @@ export default [
     },
     rules: {
       '@next/next/no-html-link-for-pages': 'error',
-      'prettier/prettier': 'error',
+      'prettier/prettier': [
+        'error',
+        {
+          singleQuote: true,
+          parser: 'flow',
+        },
+      ],
       '@typescript-eslint/no-explicit-any': 'error',
     },
   },
-  {
-  "prettier/prettier": [
-    "error",
-    {
-      "singleQuote": true,
-      "parser": "flow"
-    }
-  ]
-}
 ];

@@ -4,5 +4,4 @@ export const ERROR_MESSAGES = {
   INVALID_CREDENTIALS: 'Неверный email или пароль',
   USER_ALREADY_EXISTS: 'Пользователь уже существует',
   REQUIRED_FIELDS: 'Пожалуйста, заполните все поля',
-
 };

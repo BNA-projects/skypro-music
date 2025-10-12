@@ -26,8 +26,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <ReduxProvider>
-        <body className={montserrat.variable}>{children}
-            <ToastContainer />
+        <body className={montserrat.variable}>
+          {children}
+          <ToastContainer />
         </body>
       </ReduxProvider>
     </html>

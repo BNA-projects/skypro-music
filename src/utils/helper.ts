@@ -12,7 +12,6 @@ export function formatTime(time: number): string {
   return `${minutes}:${outputSeconds}`;
 }
 
-
 export function getTimePanel(currentTime: number, totalTime: number): string {
   return `${formatTime(currentTime)} / ${formatTime(totalTime)}`;
 }
