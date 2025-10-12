@@ -14,9 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ],
     "paths": {
       "@/*": ["./src/*"],
@@ -31,14 +29,25 @@
       "@constans/*": ["./constans/*"],
       "@app/*": ["./app/*"],
       "@validators/*": ["./validators/*"]
-    }
+    },
+    "types": ["node", "react", "react-dom"]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "jest.config.js"
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+"exclude": [
+  "node_modules",
+  "jest.config.js",
+  "**/*.test.ts",
+  "**/*.test.tsx",
+  "**/__tests__/**",
+  "eslint.config.js",
+  ".eslintrc.*",
+  "**/eslint-plugin-*",
+  "**/eslint/**"
+]
+
 }

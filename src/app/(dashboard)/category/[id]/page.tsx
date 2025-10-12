@@ -28,7 +28,7 @@ export default function CategoriesPlaylist() {
         dispatch(setCurrentPlayList(allTracksdata));
       }
       const data = await fetchTracksByID(idTracks);
-
+      console.log(data);
       if (data) {
         const englishName = playlistNameMap[data.name] || data.name;
         settitlePlayList(englishName);
@@ -36,7 +36,7 @@ export default function CategoriesPlaylist() {
 
       const filteredSortedTracks = data.items
         .map((id: number) => allTracksdata.find((track) => track._id === id))
-        .filter((track: Track) => track !== undefined);
+        .filter((track) => track !== undefined);
 
       setFilteredTracks(filteredSortedTracks);
     } catch (error) {

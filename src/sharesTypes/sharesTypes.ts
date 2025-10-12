@@ -10,3 +10,11 @@ export type Track = {
   track_file: string,
   staredUser: number[],
 };
+
+export type PlayList = {
+  _id: number,
+  name: string,
+  items: [],
+  owner: [],
+  __v: number,
+};
