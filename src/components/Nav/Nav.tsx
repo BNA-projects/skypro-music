@@ -20,7 +20,7 @@ export default function Nav() {
   const handleClick = (e: { preventDefault: () => void }) => {
     if (!userName) {
       e.preventDefault();
-      toast.error('Сначала войдите в аккаунт');
+      toast.error('Log in to your account');
     }
   };
 
