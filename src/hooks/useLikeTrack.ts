@@ -26,7 +26,9 @@ export const useLikeTrack = (track: Track | null): returnTypeHook => {
 
   const toggleLike = () => {
     if (!access) {
-      return toast.error('Log in to your account');
+      return toast.error('Log in to your account', {
+        toastId: 'auth-login-required',
+      });
     }
 
     const actionApi = isLike ? removeLike : addLike;

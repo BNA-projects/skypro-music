@@ -12,7 +12,7 @@ export const useFormValidation = (initialFields: FormData) => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -23,7 +23,7 @@ export const useFormValidation = (initialFields: FormData) => {
   const validateForm = (requiredFields: string[]): boolean => {
     const { hasEmpty, errors: emptyErrors } = emptyFieldsValidator(
       formData,
-      requiredFields,
+      requiredFields
     );
 
     if (hasEmpty) {

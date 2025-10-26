@@ -42,7 +42,7 @@ function getCurrentIndexSafe(state: initialStateType): number | null {
   const playList = getActivePlayList(state);
 
   const index = playList.findIndex(
-    (track) => track._id === state.currentTrack!._id,
+    (track) => track._id === state.currentTrack!._id
   );
 
   return index !== -1 ? index : null;
@@ -116,7 +116,7 @@ const trackSlice = createSlice({
     },
     removeLikedTracks(state, action: PayloadAction<Track>) {
       state.favoritePlayList = state.favoritePlayList.filter(
-        (track) => track._id !== action.payload._id,
+        (track) => track._id !== action.payload._id
       );
     },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
