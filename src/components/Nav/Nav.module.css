@@ -1,7 +1,18 @@
-.main__nav {
-  width: 244px;
+/* .main__nav {
+  width: 180px;
   background-color: #181818;
-  padding: 20px 0 20px 36px;
+  padding: 20px 0px  0px 36px;
+} */
+
+.main__nav {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .main__nav {
+    display: block;
+    padding: 20px 0px 0px 36px;
+  }
 }
 
 .nav__logo {
@@ -13,7 +24,7 @@
 }
 
 .nav__burger {
-      position: relative;
+  position: relative;
   z-index: 1001;
   width: 20px;
   height: 36px;
@@ -32,10 +43,7 @@
 
 .nav__menu {
   position: absolute;
-
   left: 0;
-
-  width: 244px;
   background-color: #181818;
   transform: translateX(-110%);
   opacity: 0;
@@ -43,7 +51,6 @@
   transition: all 0.3s ease;
   padding-left: 36px;
   margin: 0;
-
 }
 
 .nav__menu.open {
