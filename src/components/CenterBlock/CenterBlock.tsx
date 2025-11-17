@@ -16,7 +16,7 @@ export default function CenterBlock({
 }) {
   return (
     <div className={styles.centerblock}>
-      {/* <Search /> */}
+      <Search />
 
       <h2 className={styles.centerblock__h2}>{title}</h2>
       <Filter tracks={tracks} />
