@@ -13,6 +13,8 @@
 }
 
 .nav__burger {
+      position: relative;
+  z-index: 1001;
   width: 20px;
   height: 36px;
   padding: 13px 0;
@@ -30,7 +32,7 @@
 
 .nav__menu {
   position: absolute;
-  top: 70px;
+
   left: 0;
 
   width: 244px;
@@ -41,6 +43,7 @@
   transition: all 0.3s ease;
   padding-left: 36px;
   margin: 0;
+
 }
 
 .nav__menu.open {
