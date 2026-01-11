@@ -47,3 +47,19 @@
   width: 60px;
   text-align: end;
 }
+
+@media (max-width: 1024px) {
+  .content__title {
+    padding-left: 56px;
+  }
+
+  .col04 {
+    width: 84px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content__title {
+    display: none;
+  }
+}

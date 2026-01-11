@@ -28,7 +28,7 @@ export default function CategoriesPlaylist() {
         dispatch(setCurrentPlayList(allTracksdata));
       }
       const data = await fetchTracksByID(idTracks);
-      console.log(data);
+
       if (data) {
         const englishName = playlistNameMap[data.name] || data.name;
         settitlePlayList(englishName);

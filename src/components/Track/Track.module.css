@@ -5,33 +5,20 @@
 }
 
 .playlist__track {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
+/* ---------- TITLE (TRACK) ---------- */
 .track__title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  width: 447px;
+  width: auto;
+  flex: 2 1 420px;
+  min-width: 0;
 }
 
 .track__titleImage {
@@ -39,16 +26,11 @@
   height: 51px;
   padding: 16px;
   background: #313131;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   margin-right: 17px;
+  flex: 0 0 auto;
 }
 
 .track__titleSvg {
@@ -80,12 +62,20 @@
   }
 }
 
+.track__title-text {
+  min-width: 0;
+}
+
 .track__titleLink {
+  display: block;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .track__titleSpan {
@@ -96,50 +86,170 @@
   color: #4e4e4e;
 }
 
+/* ---------- AUTHOR ---------- */
 .track__author {
-  width: 321px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  width: auto;
+  flex: 1 1 260px;
+  min-width: 0;
+
   display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
 .track__authorLink {
+  display: block;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   text-align: left;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
+/* ---------- ALBUM ---------- */
 .track__album {
-  width: 245px;
+  width: auto;
+  flex: 1 1 220px;
+  min-width: 0;
 }
 
 .track__albumLink {
+  display: block;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #696969;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------- TIME + LIKE ---------- */
+.track__time {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex: 0 0 auto;
 }
 
 .track__timeSvg {
   width: 14px;
   height: 12px;
-  margin-right: 17px;
+  margin-right: 0;
+  flex: 0 0 auto;
+
   fill: transparent;
   stroke: #696969;
+  cursor: pointer;
 }
 
 .track__timeText {
+  min-width: 44px;
+  text-align: right;
+  flex: 0 0 auto;
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: right;
   color: #696969;
+}
+
+/* =========================
+   TABLET (<= 1024px)
+   ========================= */
+@media (max-width: 1024px) {
+  .track__titleImage {
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    margin-right: 12px;
+  }
+
+  .track__titleLink,
+  .track__authorLink,
+  .track__albumLink,
+  .track__timeText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .track__time {
+    width: 84px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .playlist__item {
+    margin-bottom: 10px;
+  }
+
+  .playlist__track {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .track__title {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .track__author {
+    flex: 1 1 auto;
+    min-width: 0;
+    order: 3;
+  }
+
+  .track__album {
+    display: none;
+  }
+
+  .track__time {
+    order: 2;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .track__titleImage {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  .track__timeText {
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .track__titleLink {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .track__authorLink {
+    font-size: 13px;
+    line-height: 18px;
+    opacity: 0.9;
+  }
+
+  .track__time {
+    gap: 10px;
+  }
+
+  .track__timeSvg {
+    width: 16px;
+    height: 14px;
+  }
 }

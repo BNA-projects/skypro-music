@@ -14,14 +14,12 @@ type PlayListProps = {
 export default function PlayList({ tracks, isLoading }: PlayListProps) {
   const allTracks = tracks;
   const selectedAuthors = useAppSelector(
-    (state) => state.tracks.selectedAuthors
+    (state) => state.tracks.selectedAuthors,
   );
   const selectedGenres = useAppSelector((state) => state.tracks.selectedGenres);
 
   const sortOption = useAppSelector((state) => state.tracks.sortOption);
   const searchInput = useAppSelector((store) => store.tracks.searchInput);
-
-  console.log(allTracks);
 
   const filteredTracks = useMemo(() => {
     return allTracks
@@ -37,13 +35,13 @@ export default function PlayList({ tracks, isLoading }: PlayListProps) {
       .filter((track) =>
         selectedAuthors.length > 0
           ? selectedAuthors.includes(track.author)
-          : true
+          : true,
       )
 
       .filter((track) =>
         selectedGenres.length > 0
           ? track.genre.some((g: string) => selectedGenres.includes(g))
-          : true
+          : true,
       )
 
       .sort((a, b) => {

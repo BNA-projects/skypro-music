@@ -14,15 +14,15 @@
 }
 
 .main {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  padding: 0 40px;
+  flex-wrap: nowrap;
+}
+
+.main > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
 }

@@ -19,8 +19,8 @@ export default function DashboardLayout({
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+        <Nav />
         <main className={styles.main}>
-          <Nav />
           <div>{children}</div>
           <SideBar />
         </main>
